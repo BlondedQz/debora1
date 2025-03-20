@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas Totais de Felicidade</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        #contador {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>José & Debora</h1>
+    <div id="contador">Carregando...</div>
+    <img src="Captura de tela 2025-01-02 144154.png" alt="Eu amo todo o tempo que passo com você">
+    <script>
+        function atualizarContador() {
+            const inicio = new Date("2024-04-14T00:00:00").getTime();
+            const agora = new Date().getTime();
+            const diferenca = agora - inicio;
+            
+            const horas = Math.floor(diferenca / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+            
+            document.getElementById("contador").innerText = `${horas}h ${minutos}m ${segundos}s`;
+        }
+        
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+</html>
